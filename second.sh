@@ -1,3 +1,4 @@
-ls -ls
-
+pwd
 ls
+ls -l
+
