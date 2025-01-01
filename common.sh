@@ -1,5 +1,5 @@
 dir_path=$(pwd)
-log_file= /tmp/roboshop.log
+log_file=/tmp/roboshop.log
 Nginx()
 {
   echo disbale nginx
