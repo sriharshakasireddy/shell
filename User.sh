@@ -4,5 +4,5 @@ app_name=user
 
 NODEJS
 
-touch harsha
-cat harsha
+cd
+ls -l
