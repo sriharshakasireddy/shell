@@ -12,7 +12,7 @@ NODEJS()
   dnf module disable nodejs -y
   dnf module enable nodejs:20 -y
   dnf install nodejs -y
-  cp $app_name.service /etc/systemd/system/$app_name.service
+
  
      PreReq
      npmi
@@ -39,7 +39,8 @@ NODEJS()
   }
  
  System_setUp ()
- { 
+ {
+     cp $app_name.service /etc/systemd/system/$app_name.service
  systemctl daemon-reload
  systemctl enable $app_name
  systemctl start $app_name
@@ -48,7 +49,7 @@ NODEJS()
 Java()
 {
 dnf install maven -y
- cp $app_name.service /etc/systemd/system/$app_name.service
+
  PreReq
  mvn clean package
  mv target/$app_name-1.0.jar $app_name.jar
@@ -68,7 +69,7 @@ System_setUp
 
 Dispatching()
 {
-  cp $app_name.service /etc/systemd/system/$app_name.service
+
  dnf install golang -y
  
 PreReq
