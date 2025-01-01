@@ -3,7 +3,7 @@
 
 
 source ./common.sh
-app_name=catalouge
+app_name=catalogue
 
 NODEJS
 
