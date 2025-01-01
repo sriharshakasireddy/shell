@@ -34,32 +34,32 @@ NODEJS()
  
   PreReq()
   { 
-  useradd roboshop
+  useradd roboshop >$log_file
 
-  rm -r /app
-  mkdir /app
+  rm -r /app >$log_file
+  mkdir /app >$log_file
 
-  rm -f /tmp/$app_name.zip
+  rm -f /tmp/$app_name.zip >$log_file
 
-  curl -L -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip
-  cd /app
-  unzip /tmp/$app_name.zip
-  cd /app
+  curl -L -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip >$log_file
+  cd /app >$log_file
+  unzip /tmp/$app_name.zip >$log_file
+  cd /app >$log_file
   
   }
   
   npmi()
   {
     echo install npm
-    npm install
+    npm install >$log_file
   }
  
  System_setUp ()
  {
-     cp $dir_path/$app_name.service /etc/systemd/system/$app_name.service
- systemctl daemon-reload
- systemctl enable $app_name
- systemctl start $app_name
+     cp $dir_path/$app_name.service /etc/systemd/system/$app_name.service >$log_file
+ systemctl daemon-reload >$log_file
+ systemctl enable $app_name >$log_file
+ systemctl start $app_name >$log_file
 }
 
 Java()
