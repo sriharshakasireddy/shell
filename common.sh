@@ -1,4 +1,4 @@
-
+dir_path=$(pwd)
 Nginx()
 {
   dnf module disable nginx -y
@@ -40,7 +40,7 @@ NODEJS()
  
  System_setUp ()
  {
-     cp $app_name.service /etc/systemd/system/$app_name.service
+     cp $dir_path/$app_name.service /etc/systemd/system/$app_name.service
  systemctl daemon-reload
  systemctl enable $app_name
  systemctl start $app_name
