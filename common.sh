@@ -82,3 +82,12 @@ go build
 
 System_setUp
 }
+
+password(){
+
+  for file in schema app-user master-data; do
+
+mysql -h 10.0.0.9 -uroot -pRoboShop@1 < /app/db/$file.sql
+done
+systemctl restart shipping
+}
