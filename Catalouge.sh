@@ -4,6 +4,7 @@ cp mongo.repo /etc/yum.repos.d/mongo.repo
 
 source ./common.sh
 app_name=catalouge
+
 NODEJS
 
 
