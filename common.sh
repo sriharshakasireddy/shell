@@ -1,17 +1,29 @@
 dir_path=$(pwd)
+log_file= /tmp/roboshop.log
 Nginx()
 {
+  echo disbale nginx
 dnf module disable nginx -y
+
+  echo enabale nginx
 dnf module enable nginx:1.24 -y
+
+  echo install nginx
 dnf install nginx -y
 
 }
 
 NODEJS()
 {
-  dnf module disable nodejs -y
-  dnf module enable nodejs:20 -y
-  dnf install nodejs -y
+
+    echo disbale nodejs
+  dnf module disable nodejs -y >$log_file
+
+  echo enabale nodejs
+  dnf module enable nodejs:20 -y >$log_file
+
+  echo Install nodejs
+  dnf install nodejs -y >$log_file
 
  
      PreReq
@@ -38,6 +50,7 @@ NODEJS()
   
   npmi()
   {
+    echo install npm
     npm install
   }
  
@@ -51,6 +64,8 @@ NODEJS()
 
 Java()
 {
+
+  echo install maven
 dnf install maven -y
 
  PreReq
@@ -62,7 +77,10 @@ System_setUp
  
  Python()
  {
+
+   echo install python3
   dnf install python3 gcc python3-devel -y
+
   PreReq
   pip3 install -r requirements.txt
   
@@ -72,7 +90,7 @@ System_setUp
 
 Dispatching()
 {
-
+echo install golang
  dnf install golang -y
  
 PreReq
