@@ -1,7 +1,7 @@
 dir_path=$(pwd)
 Nginx()
 {
-  dnf module disable nginx -y
+dnf module disable nginx -y
 dnf module enable nginx:1.24 -y
 dnf install nginx -y
 
@@ -23,9 +23,12 @@ NODEJS()
   PreReq()
   { 
   useradd roboshop
+
   rm -r /app
   mkdir /app
+
   rm -f /tmp/$app_name.zip
+
   curl -L -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip
   cd /app
   unzip /tmp/$app_name.zip
