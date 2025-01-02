@@ -18,12 +18,13 @@ NODEJS()
 
     echo disbale nodejs
   dnf module disable nodejs -y >$log_file
-
+ echo $?
   echo enabale nodejs
   dnf module enable nodejs:20 -y >$log_file
-
+ echo $?
   echo Install nodejs
   dnf install nodejs -y >$log_file
+  echo $?
 
  
      PreReq
@@ -33,16 +34,21 @@ NODEJS()
  }
  
   PreReq()
-  { 
+  {
+     echo useradd roboshop
   useradd roboshop >$log_file
 
   rm -r /app >$log_file
+
+  echo create /app directory
   mkdir /app >$log_file
 
   rm -f /tmp/$app_name.zip >$log_file
 
   curl -L -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip >$log_file
   cd /app >$log_file
+
+  echo unzip file
   unzip /tmp/$app_name.zip >$log_file
   cd /app >$log_file
   
