@@ -4,8 +4,8 @@ if [ -z "$MY_PASSWORD" ] ;then
 
 echo MY_pASSWORD is needed
 exit 1
-else
-  exit 1
+
+
 fi
 
 dnf install mysql-server -y
