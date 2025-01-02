@@ -1,4 +1,12 @@
-source ./common.sh
+source ./common.
+
+if [ -z "$MY_PASSWORD" ] ;then
+
+echo MY_pASSWORD is needed
+else
+  exit 1
+fi
+
 dnf install mysql-server -y
 
   echo enable mysqld
@@ -10,5 +18,5 @@ systemctl start mysqld
   Status_Print $?
 
   echo secure installation
-mysql_secure_installation --set-root-pass RoboShop@1
+mysql_secure_installation --set-root-pass $MY_PASSWORD
   Status_Print $?
