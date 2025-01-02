@@ -24,7 +24,7 @@ NODEJS()
  echo $?
   echo Install nodejs
   dnf install nodejs -y >$log_file
-  Status_Print
+  Status_Print $?
 
  
      PreReq
