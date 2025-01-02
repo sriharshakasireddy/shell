@@ -1,3 +1,4 @@
+source ./common.sh
 dnf install mysql-server -y
 
   echo enable mysqld
