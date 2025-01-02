@@ -18,13 +18,13 @@ NODEJS()
 
     echo disbale nodejs
   dnf module disable nodejs -y >$log_file
- Status-Print
+ Status_Print
   echo enabale nodejs
   dnf module enable nodejs:20 -y >$log_file
  echo $?
   echo Install nodejs
   dnf install nodejs -y >$log_file
-  Status-Print
+  Status_Print
 
  
      PreReq
@@ -116,10 +116,12 @@ done
 systemctl restart shipping
 }
 
-Status-Print()
+Status_Print()
 {
   if [$? -gt 0]; then
     echo -e "\e[31mFAILURE\e[0m"
     else
-echo -e "\e[32mSUCCESS\e[0m"}
+echo -e "\e[32mSUCCESS\e[0m"
+
 fi
+}
