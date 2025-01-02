@@ -18,13 +18,13 @@ NODEJS()
 
     echo disbale nodejs
   dnf module disable nodejs -y >$log_file
- echo $?
+ Status-Print
   echo enabale nodejs
   dnf module enable nodejs:20 -y >$log_file
  echo $?
   echo Install nodejs
   dnf install nodejs -y >$log_file
-  echo $?
+  Status-Print
 
  
      PreReq
@@ -115,3 +115,11 @@ mysql -h 10.0.0.9 -uroot -pRoboShop@1 < /app/db/$file.sql
 done
 systemctl restart shipping
 }
+
+Status-Print()
+{
+  if [$? -gt 0]; then
+    echo -e "\e[31mFAILURE\e[0m"
+    else
+echo -e "\e[32mSUCCESS\e[0m"}
+fi
